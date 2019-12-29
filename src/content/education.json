@@ -1,0 +1,10 @@
+{
+    "schools": [
+        {
+            "name": "westmont college",
+            "degree": "b.s. data analytics",
+            "years": "2017-2021",
+            "involvements": "westmont college student association(student govenrment), cs teaching assistant, black student union"
+        }
+    ]
+}

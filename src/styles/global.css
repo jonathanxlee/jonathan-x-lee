@@ -1,0 +1,76 @@
+
+:root {
+    font-size: 62.5%;
+    
+    --theme-dark: #262626;
+    --theme-light: #ffffff;
+    --theme-muted: #616161;
+    --theme-highlight: black;
+
+    --theme-font-main: #000000;
+
+    --font-xl:  7.2rem;
+    --font-l:   6rem;
+    --font-m:   3rem;
+    --font-s:   1.8px;
+    --font-xs:  1.2px; 
+  }
+
+html {
+    font-size: 62.5%;
+    min-height: 100%;
+    margin: 10rem;
+    margin-top: 5rem;
+    background-color: var(--theme-light);
+    text-align: center;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    color: var(--theme-light);
+}
+
+p {
+    font-size: var(--font-m);
+    color: var(--theme-dark);
+    line-height: 1.1em;
+}
+
+button {
+    color: var(--theme-dark);
+}
+
+.font-basic_xl {
+    font-size: var(--font-xl);
+}
+.font-basic_l {
+    font-size: var(--font-l);
+}
+.font-basic_m {
+    font-size: var(--font-m);
+}
+.font-basic_s {
+    font-size: var(--font-s);
+}
+.font-basic_xs {
+    font-size: var(--font-xs);
+}
+
+.text-muted {
+    color: var(--theme-muted);
+}
+.text-highlight{
+    color: var(--theme-highlight)
+}
+
+.section-header {
+    size: 5rem; 
+    color: var(--theme-highlight);
+}
+
+.subtitle {
+    size: 3rem;
+    color: var(--theme-muted);
+}
+
+
+
