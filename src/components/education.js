@@ -9,7 +9,7 @@ const Education = ({ }) => (
             <div className={blockStyles.subBlock}>
                 <h2 className='section-header'>{school.degree} <span className='text-muted'> - {school.name}</span></h2>
                 <h3 className='subtitle'>{school.years}</h3>
-                <p>involvements: {school.involvements}</p> 
+                <p>courses: {school.courses}</p> 
             </div>
         ))
     }

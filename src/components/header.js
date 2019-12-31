@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import headerStyles from "../styles/header.module.css"
 import { CSSTransition } from 'react-transition-group'
 import { HamburgerSpin } from 'react-animated-burgers'
+import Fade from "react-reveal/Fade"
 
 const Header = ({ siteTitle }) => {
   const [isActive, setIsActive] = useState(false);
@@ -37,23 +38,25 @@ const Header = ({ siteTitle }) => {
         <div className={headerStyles.hamburgerStyle}>
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
         </div>
-        <CSSTransition
-          in={!isSmallScreen || isActive}
-          timeout={350}
-          classNames={{
-            enter: `${headerStyles.navAnimationEnter}`,
-            enterActive: `${headerStyles.navAnimationEnterActive}`,
-            exit: `${headerStyles.navAnimationExit}`,
-            exitActive: `${headerStyles.navAnimationExitActive}`
-           }}
-          unmountOnExit>
-          <nav className={headerStyles.navBasic}>
-            <Link to='/page-2/#about' className={headerStyles.linkHeader}>about</Link>
-            <Link to='/page-2/#education' className={headerStyles.linkHeader}>education</Link>
-            <Link to='/page-2/#skills' className={headerStyles.linkHeader}>skills</Link>
-            <Link to='/page-2/#projects' className={headerStyles.linkHeader}>projects</Link>
-          </nav>
-        </CSSTransition>
+          <CSSTransition
+            in={!isSmallScreen || isActive}
+            timeout={350}
+            classNames={{
+              enter: `${headerStyles.navAnimationEnter}`,
+              enterActive: `${headerStyles.navAnimationEnterActive}`,
+              exit: `${headerStyles.navAnimationExit}`,
+              exitActive: `${headerStyles.navAnimationExitActive}`
+            }}
+            unmountOnExit>
+            <Fade top big>
+              <nav className={headerStyles.navBasic}>
+                <Link to='/page-2/#about' className={headerStyles.linkHeader}>about</Link>
+                <Link to='/page-2/#education' className={headerStyles.linkHeader}>education</Link>
+                <Link to='/page-2/#skills' className={headerStyles.linkHeader}>skills</Link>
+                <Link to='/page-2/#projects' className={headerStyles.linkHeader}>projects</Link>
+              </nav>
+            </Fade>
+          </CSSTransition>
       </header>
     </div>
   );
