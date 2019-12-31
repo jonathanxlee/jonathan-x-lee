@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import About from "../components/about"
 import Education from "../components/education"
+import Work from "../components/work"
 import aboutData from "../content/about/about"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -16,7 +17,7 @@ const SecondPage = () => (
       <Education />
     </section>
     <section id='skills'>
-      <About data={aboutData} />
+      <Work />
     </section>
     <section id='projects'>
       <About data={aboutData} />

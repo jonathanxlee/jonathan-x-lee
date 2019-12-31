@@ -72,5 +72,8 @@ button {
     color: var(--theme-muted);
 }
 
+.practice{
+    display: inline
+}
 
 
