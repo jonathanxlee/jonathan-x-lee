@@ -50,6 +50,7 @@ const Header = ({ siteTitle }) => {
             unmountOnExit>
             <Fade top big>
               <nav className={headerStyles.navBasic}>
+                {/* change this into props.children to make reusable */}
                 <Link to='/page-2/#about' className={headerStyles.linkHeader}>about</Link>
                 <Link to='/page-2/#education' className={headerStyles.linkHeader}>education</Link>
                 <Link to='/page-2/#skills' className={headerStyles.linkHeader}>skills</Link>

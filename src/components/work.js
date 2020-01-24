@@ -1,28 +1,39 @@
-import PropTypes from "prop-types"
 import React from "react"
 import styled from 'styled-components';
 import { green } from "color-name";
+import PropTypes from "prop-types"
+
 
 const Card = styled.div`
-    display: block;
+    display: inline-block
+    width: 100%
+    align-items: left;
+    text-align: left;
+    
 `
 
 const MenuContainer = styled.div`
     display: flex;
+    width: 100%;
+    align-items: left;
 `
 
 const MenuBar = styled.ul`
-    display: block;
+    display: flex;
+    text-align:justify;
     list-style-type: none;
     margin-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 1em;
+    border-bottom: 1px solid lightgrey;
 `
 
 const MenuTab = styled.li`
     float: left;
-    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 0.1em;
     :first-child{
-        padding-left: 0;
+        padding-left: 0px;
     }
 `
 
@@ -30,40 +41,69 @@ const MenuButton = styled.button`
     display: block;
     color: black;
     text-align: center;
-    text-decoration: underline;
     border: none;
     outline: none;
+    padding: 0px;
 
     :hover{
-        color: grey;
+        color: red;
+    }
+
+    &.active{
+        color: red;
     }
 `
 
+const StyledCard = styled.div`
 
-const Work = () => {
-    const [value, setValue] = React.useState(0);
 
+`
+
+
+const Work = ({data}) => {
+    
+    const [job, setJob] = React.useState(data[0]);
 
     const handleClick = (event) => {
         console.log(event.target.id);
-        setValue(event.target.id);
+        setJob(data[event.target.id]);
     }
     
     return(
-        <div>
+        <Card>
             <MenuContainer>
                 <MenuBar>
-                    <MenuTab id='0'><MenuButton id='0' onClick={event => handleClick(event)}><h3 id='0'>software engineering intern</h3></MenuButton></MenuTab>
-                    <MenuTab id='1'><MenuButton id='1' onClick={event => handleClick(event)}><h3 id='1'>salesforce developer</h3></MenuButton></MenuTab>
-                    <MenuTab id='2'><MenuButton id='2' onClick={event => handleClick(event)}><h3 id='2'>ml research assistant</h3></MenuButton></MenuTab>
+                    {data.map((work,i) => (
+                        <MenuTab>
+                            <MenuButton onClick={event => handleClick(event)}>
+                                <h3 id={i}>{work.company}</h3>
+                            </MenuButton>
+                        </MenuTab>
+                    ))}
                 </MenuBar>
             </MenuContainer>
-            <Card>
-                <h1>{value}</h1>
-            </Card>
-        </div>
+            <StyledCard>
+                <h3>{job.title} @{job.company}</h3>
+                <h6>{job.start_date} - {job.end_date}</h6>
+                <ul>
+                    {job.bullets.map((item,i) => (
+                        <li>{item}</li>
+                        ))}
+                </ul>
+            </StyledCard>
+            
+            
+        </Card>
     )
     
+}
+
+Work.propTypes = {
+    data: PropTypes.array.isRequired,
+};
+  
+Work.defaultProps = {
+    data: ``,
 }
 
 

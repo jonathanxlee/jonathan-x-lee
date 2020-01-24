@@ -1,0 +1,35 @@
+[
+    {   
+        "title": "software engineering intern",
+        "company": "apeel sciences",
+        "start_date": "oct 2019",
+        "end_date": "present",
+        "bullets": [
+            "Designed and implemented ETL processes",
+            "Architechted API monitoring systems",
+            "Collaborated cross-functionally to design KPI vizualizations"
+        ] 
+    },
+    {   
+        "title":"senior salesforce developer",
+        "company": "catlab west",
+        "start_date": "feb 2019",
+        "end_date": "jan 2020",
+        "bullets": [
+            "Designed and owned the development of a software component from prototype to launch",
+            "Managed a team of developers working on feature development",
+            "Coordinated with key stakeholders to "
+        ] 
+    },
+    {   
+        "title":"ml research assistant",
+        "company": "westmont college",
+        "start_date": "may 2019",
+        "end_date": "aug 2019",
+        "bullets": [
+            "Researched convultional neural network architectures for assess the presence of cerbal palsy newborn babies",
+            "Designed and tested CNN archtiectures with Keras"
+        ] 
+    }
+
+]

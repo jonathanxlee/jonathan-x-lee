@@ -6,6 +6,13 @@ import Work from "../components/work"
 import aboutData from "../content/about/about"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styled from 'styled-components';
+
+const workdata = require("../content/work.json");
+
+const CenteredSection = styled.section` 
+  align-content: center; 
+`
 
 const SecondPage = () => (
   <Layout>
@@ -16,9 +23,9 @@ const SecondPage = () => (
     <section id='education'>
       <Education />
     </section>
-    <section id='skills'>
-      <Work />
-    </section>
+    <CenteredSection id='skills'>
+      <Work data={workdata}/>
+    </CenteredSection>
     <section id='projects'>
       <About data={aboutData} />
     </section>
