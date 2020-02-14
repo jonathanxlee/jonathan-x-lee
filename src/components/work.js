@@ -5,7 +5,10 @@ import PropTypes from "prop-types"
 
 
 const Card = styled.div`
-    display: inline-block
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-content: center; 
     width: 100%
     align-items: left;
     text-align: left;
@@ -18,16 +21,16 @@ const MenuContainer = styled.div`
     align-items: left;
 `
 
-const MenuBar = styled.ul`
+const MenuBar = styled.div`
     display: flex;
-    text-align:justify;
-    list-style-type: none;
+    justify-content: flex-start;
+    width: 100%;
     margin-left: 0;
     margin-bottom: 1em;
     border-bottom: 1px solid lightgrey;
 `
 
-const MenuTab = styled.li`
+const MenuTab = styled.div`
     float: left;
     padding-left: 1em;
     padding-right: 1em;
@@ -39,11 +42,10 @@ const MenuTab = styled.li`
 
 const MenuButton = styled.button`
     display: block;
-    color: black;
     text-align: center;
     border: none;
     outline: none;
-    padding: 0px;
+    background: none;
 
     :hover{
         color: red;
@@ -54,48 +56,56 @@ const MenuButton = styled.button`
     }
 `
 
-const StyledCard = styled.div`
-
-
+const DetailList = styled.ul`
+    list-style-type: none;
 `
 
+const DetailListItme = styled.li`
+    font-size: var(--font-s);
+    margin: 1rem;
+`
+
+const StyledCard = styled.div``
 
 const Work = ({data}) => {
     
     const [job, setJob] = React.useState(data[0]);
+    const [active, setActive] = React.useState(0);
 
     const handleClick = (event) => {
-        console.log(event.target.id);
         setJob(data[event.target.id]);
+        setActive(event.target.id);
     }
     
     return(
         <Card>
             <MenuContainer>
                 <MenuBar>
-                    {data.map((work,i) => (
-                        <MenuTab>
-                            <MenuButton onClick={event => handleClick(event)}>
-                                <h3 id={i}>{work.company}</h3>
-                            </MenuButton>
-                        </MenuTab>
-                    ))}
+                    {data.map(function(work,i) {
+                        const className = active == i ? 'active' : 'inactive';
+                        console.log(active + " and " + i);
+
+                        return(
+                            <MenuTab>
+                                <MenuButton className={className} onClick={event => handleClick(event)}>
+                                    <h3 id={i}>{work.company}</h3>
+                                </MenuButton>
+                            </MenuTab>
+                        );
+                    })}
                 </MenuBar>
             </MenuContainer>
             <StyledCard>
                 <h3>{job.title} @{job.company}</h3>
-                <h6>{job.start_date} - {job.end_date}</h6>
+                <h4>{job.start_date} - {job.end_date}</h4>
                 <ul>
                     {job.bullets.map((item,i) => (
-                        <li>{item}</li>
+                        <DetailListItme id={i}><p>{item}</p></DetailListItme>
                         ))}
                 </ul>
             </StyledCard>
-            
-            
         </Card>
     )
-    
 }
 
 Work.propTypes = {
@@ -103,9 +113,7 @@ Work.propTypes = {
 };
   
 Work.defaultProps = {
-    data: ``,
+    data: {},
 }
-
-
 
 export default Work
