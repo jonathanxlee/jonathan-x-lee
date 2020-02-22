@@ -1,9 +1,9 @@
 import React from "react"
 import styled from 'styled-components';
-import { green } from "color-name";
 import PropTypes from "prop-types"
 
-const tabWidth = 200;
+const tabWidthRegular = 200;
+const tabWidthPhablet = 200;
 
 const Card = styled.div`
     display: flex;
@@ -13,7 +13,6 @@ const Card = styled.div`
     width: 100%
     align-items: left;
     text-align: left;
-    
 `
 
 const MenuContainer = styled.div`
@@ -21,26 +20,27 @@ const MenuContainer = styled.div`
     position: relative;
     width: 100%;
     align-items: left;
+    overflow: auto;
+    white-space: nowrap;
+
 `
 
 const MenuBar = styled.div`
     display: flex;
     justify-content: flex-start;
-    width: 100%;
     margin-left: 0;
     border-bottom: 3px solid lightgrey;
-`
+    width: 100%;
 
-const MenuTab = styled.div`
-    float: left;
-    max-width: ${tabWidth}px;
-    padding: 1rem;
+    @media (max-width: 768px){
+        width: max-content;
+    }
 `
 
 const MenuButton = styled.button`
     display: flex;
     justify-content: center;
-    width: ${tabWidth}px; 
+    width: ${tabWidthRegular}px; 
     border: none;
     outline: none;
     background: none;
@@ -48,13 +48,12 @@ const MenuButton = styled.button`
     easing: ;
     transition: all 0.25s ease-in-out 0.1s;
 
-    :hover {
-        background-color: lightgrey;
+    &.active{
         color: red;
     }
 
-    &.active{
-        color: red;
+    @media (max-width: 768px){
+        width: ${tabWidthPhablet}px; 
     }
 `
 
@@ -68,14 +67,20 @@ const MenuHighlight = styled.span`
     z-index: 10;
     bottom: 0;
     height: 3px;
-    width: ${tabWidth}px;
+    width: ${tabWidthRegular}px;
     transition: all 0.25s ease-in-out 0.1s;
     
     transform: translateX(
-        ${props => (props.active > 0 ? props.active * tabWidth : 0)}px
+        ${props => (props.active > 0 ? props.active * tabWidthRegular : 0)}px
     );
-`
 
+    @media(max-width: 768px){
+        width: ${tabWidthPhablet}px;
+        transform: translateX(
+            ${props => (props.active > 0 ? props.active * tabWidthPhablet : 0)}px
+        ); 
+    }
+`
 
 const DetailList = styled.ul`
     list-style-type: none;
