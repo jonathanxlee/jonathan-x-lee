@@ -2,6 +2,7 @@
     {   
         "title": "software engineering intern",
         "company": "apeel sciences",
+        "short_company": "apeel",
         "start_date": "oct 2019",
         "end_date": "present",
         "bullets": [
@@ -13,6 +14,7 @@
     {   
         "title":"senior salesforce developer",
         "company": "catlab west",
+        "short_company": "catlab",
         "start_date": "feb 2019",
         "end_date": "jan 2020",
         "bullets": [
@@ -24,6 +26,7 @@
     {   
         "title":"summer ai research fellow",
         "company": "westmont college",
+        "short_company": "westmont",
         "start_date": "may 2019",
         "end_date": "aug 2019",
         "bullets": [

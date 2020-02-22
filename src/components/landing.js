@@ -1,20 +1,24 @@
-import { Link } from "gatsby"
-import React from "react"
-import landingStyles from "../styles/landing.module.css"
-import LandingBlock from "./landingBlock"
+import { Link } from "gatsby";
+import React from "react";
+import styled from 'styled-components';
+import LandingBlock from "./landingBlock";
+
+const LandingText = styled.h2`
+    color: var(--theme-dark);
+`
 
 const Landing = ({ data }) => (
     <div>
         <LandingBlock>
-            <h1 className={landingStyles.innerText}>hello.</h1>
-            <h2 className={landingStyles.innerText}>my name is jonathan lee</h2>
+            <LandingText>hello.</LandingText>
+            <LandingText>my name is jonathan lee</LandingText>
         </LandingBlock>
         <LandingBlock>
-            <h2 className={landingStyles.innerText}>i am developer and engineer</h2>
-            <h2 className={landingStyles.innerText}>with a passion for innovating UX design</h2>
+            <LandingText>i am developer and engineer</LandingText>
+            <LandingText>with a passion for innovating UX design</LandingText>
         </LandingBlock>
         <LandingBlock>
-            <h2 className={landingStyles.innerText}><Link className={landingStyles.innerText} to="/page-2/">let's create together</Link></h2>
+            <LandingText><Link to="/page-2/">let's create together</Link></LandingText>
         </LandingBlock>
     </div>
 )

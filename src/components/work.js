@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { green } from "color-name";
 import PropTypes from "prop-types"
 
+const tabWidth = 200;
 
 const Card = styled.div`
     display: flex;
@@ -17,6 +18,7 @@ const Card = styled.div`
 
 const MenuContainer = styled.div`
     display: flex;
+    position: relative;
     width: 100%;
     align-items: left;
 `
@@ -26,28 +28,28 @@ const MenuBar = styled.div`
     justify-content: flex-start;
     width: 100%;
     margin-left: 0;
-    margin-bottom: 1em;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 3px solid lightgrey;
 `
 
 const MenuTab = styled.div`
     float: left;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin-bottom: 0.1em;
-    :first-child{
-        padding-left: 0px;
-    }
+    max-width: ${tabWidth}px;
+    padding: 1rem;
 `
 
 const MenuButton = styled.button`
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    width: ${tabWidth}px; 
     border: none;
     outline: none;
     background: none;
+    padding: 0;
+    easing: ;
+    transition: all 0.25s ease-in-out 0.1s;
 
-    :hover{
+    :hover {
+        background-color: lightgrey;
         color: red;
     }
 
@@ -55,6 +57,25 @@ const MenuButton = styled.button`
         color: red;
     }
 `
+
+// Thank you to Brittany Chiang's Menu for providing the understanding I needed to make this menu bar
+// https://github.com/bchiang7/v4/blob/master/src/components/sections/jobs.js
+
+const MenuHighlight = styled.span`
+    display: block; 
+    background-color: red; 
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    height: 3px;
+    width: ${tabWidth}px;
+    transition: all 0.25s ease-in-out 0.1s;
+    
+    transform: translateX(
+        ${props => (props.active > 0 ? props.active * tabWidth : 0)}px
+    );
+`
+
 
 const DetailList = styled.ul`
     list-style-type: none;
@@ -83,26 +104,24 @@ const Work = ({data}) => {
                 <MenuBar>
                     {data.map(function(work,i) {
                         const className = active == i ? 'active' : 'inactive';
-                        console.log(active + " and " + i);
 
                         return(
-                            <MenuTab>
-                                <MenuButton className={className} onClick={event => handleClick(event)}>
-                                    <h3 id={i}>{work.company}</h3>
-                                </MenuButton>
-                            </MenuTab>
+                            <MenuButton id={i} className={className} onClick={event => handleClick(event)}>
+                                <h3 id={i}>{work.short_company}</h3>
+                            </MenuButton>
                         );
                     })}
                 </MenuBar>
+                <MenuHighlight active={active}></MenuHighlight>
             </MenuContainer>
             <StyledCard>
                 <h3>{job.title} @{job.company}</h3>
                 <h4>{job.start_date} - {job.end_date}</h4>
-                <ul>
+                <DetailList>
                     {job.bullets.map((item,i) => (
                         <DetailListItme id={i}><p>{item}</p></DetailListItme>
                         ))}
-                </ul>
+                </DetailList>
             </StyledCard>
         </Card>
     )

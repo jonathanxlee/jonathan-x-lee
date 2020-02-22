@@ -23,7 +23,7 @@ const SecondPage = () => (
     <section id='education'>
       <Education />
     </section>
-    <CenteredSection id='skills'>
+    <CenteredSection id='experience'>
       <Work data={workdata}/>
     </CenteredSection>
     <section id='projects'>
