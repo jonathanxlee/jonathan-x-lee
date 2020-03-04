@@ -61,7 +61,7 @@
 .navAnimationEnterActive{
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 350ms, transform 350ms;
+    transition: opacity 150ms, transform 150ms;
 }
 
 .navAnimationExit {
@@ -71,5 +71,5 @@
 .navAnimationExitActive {
     opacity: 0;
     transform: scale(0.5);
-    transition: opacity 350ms, transform 350ms;
+    transition: opacity 150ms, transform 150ms;
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from "prop-types"
 
 const tabWidthRegular = 200;
-const tabWidthPhablet = 200;
+const tabWidthPhablet = 150;
 
 const Card = styled.div`
     display: flex;
@@ -74,7 +74,7 @@ const MenuHighlight = styled.span`
         ${props => (props.active > 0 ? props.active * tabWidthRegular : 0)}px
     );
 
-    @media(max-width: 768px){
+    @media screen and (max-width: 768px){
         width: ${tabWidthPhablet}px;
         transform: translateX(
             ${props => (props.active > 0 ? props.active * tabWidthPhablet : 0)}px
