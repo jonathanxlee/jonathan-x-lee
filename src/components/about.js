@@ -4,7 +4,6 @@ import aboutStyles from "../styles/block.module.css"
 import Fade from 'react-reveal/Fade';
 
 const About = ({ data }) => (
-  
   <Fade big cascade>
     <div className={aboutStyles.block}>
       <h2 className="section-header font-basic_xl">{data.title}</h2>

@@ -1,8 +1,9 @@
 import React from "react"
 import styled from 'styled-components';
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 
-const tabWidthRegular = 200;
+const tabWidthRegular = 250;
 const tabWidthPhablet = 150;
 
 const Card = styled.div`
@@ -33,7 +34,7 @@ const MenuBar = styled.div`
     width: 100%;
 
     @media (max-width: 768px){
-        width: max-content;
+        width: ${props => (props.data.size * tabWidthPhablet > 768) ? "max-content ": "100%"};
     }
 `
 
@@ -53,7 +54,7 @@ const MenuButton = styled.button`
     }
 
     @media (max-width: 768px){
-        width: ${tabWidthPhablet}px; 
+        width: ${tabWidthPhablet}px;
     }
 `
 
@@ -87,13 +88,15 @@ const DetailList = styled.ul`
 `
 
 const DetailListItme = styled.li`
-    font-size: var(--font-s);
+    font-size: 5vh;
     margin: 1rem;
 `
 
 const StyledCard = styled.div``
 
 const Work = ({data}) => {
+
+    const isPhablet = useMediaQuery({ query: '(max-width: 768px)' });
     
     const [job, setJob] = React.useState(data[0]);
     const [active, setActive] = React.useState(0);
@@ -106,13 +109,14 @@ const Work = ({data}) => {
     return(
         <Card>
             <MenuContainer>
-                <MenuBar>
+                <MenuBar data={data}>
                     {data.map(function(work,i) {
                         const className = active == i ? 'active' : 'inactive';
+                        const headerText = isPhablet ? ('0' + (i+1) + '.') : work.short_company;
 
                         return(
                             <MenuButton id={i} className={className} onClick={event => handleClick(event)}>
-                                <h3 id={i}>{work.short_company}</h3>
+                                <h3 id={i}>{headerText}</h3>
                             </MenuButton>
                         );
                     })}
