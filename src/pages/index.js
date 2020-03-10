@@ -3,12 +3,13 @@ import { Link } from "gatsby"
 import About from "../components/about"
 import Education from "../components/education"
 import Work from "../components/work"
+import Skills from "../components/skills"
 import aboutData from "../content/about/about"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import styled from 'styled-components';
 
-const workdata = require("../content/work.json");
+const workData = require("../content/work.json");
 
 const CenteredSection = styled.section` 
   align-content: center; 
@@ -23,11 +24,11 @@ const IndexPage = () => (
       <Education />
     </section>
     <CenteredSection id='experience'>
-      <Work data={workdata}/>
+      <Work data={workData}/>
     </CenteredSection>
-    <section id='projects'>
-      <About data={aboutData} />
-    </section>
+    {/* <section id='skills'>
+      <Skills data={workData}/>
+    </section> */}
     <Link to="/">Go back to the homepage</Link>
   </Layout>
   

@@ -18,10 +18,14 @@ const StyledHeader = styled.header`
   }
 `
 
+const StyledLogo = styled.img`
+  grid-area: logo;
+`
+
 const StyledNav = styled.nav`
   grid-area: nav;
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
   align-items: right;
   text-align: right;
 
@@ -61,30 +65,30 @@ const Header = ({ siteTitle }) => {
   
   return(
     <div>
-      <StyledHeader className={headerStyles.headerBasic}>
+      <StyledHeader>
         <div className={headerStyles.hamburgerStyle}>
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
         </div>
-          <CSSTransition
-            in={!isSmallScreen || isActive}
-            timeout={350}
-            classNames={{
-              enter: `${headerStyles.navAnimationEnter}`,
-              enterActive: `${headerStyles.navAnimationEnterActive}`,
-              exit: `${headerStyles.navAnimationExit}`,
-              exitActive: `${headerStyles.navAnimationExitActive}`
-            }}
-            unmountOnExit>
-            <Fade top big>
-              <StyledNav>
-                {/* change this into props.children to make reusable */}
-                <Link to='/#about' className={headerStyles.linkHeader}>about</Link>
-                <Link to='/#education' className={headerStyles.linkHeader}>education</Link>
-                <Link to='/#skills' className={headerStyles.linkHeader}>skills</Link>
-                <Link to='/#projects' className={headerStyles.linkHeader}>projects</Link>
-              </StyledNav>
-            </Fade>
-          </CSSTransition>
+        <CSSTransition
+          in={!isSmallScreen || isActive}
+          timeout={350}
+          classNames={{
+            enter: `${headerStyles.navAnimationEnter}`,
+            enterActive: `${headerStyles.navAnimationEnterActive}`,
+            exit: `${headerStyles.navAnimationExit}`,
+            exitActive: `${headerStyles.navAnimationExitActive}`
+          }}
+          unmountOnExit>
+          <Fade top big>
+            <StyledLogo></StyledLogo>
+            <StyledNav>
+              {/* change this into props.children to make reusable */}
+              <Link to='/#about' className={headerStyles.linkHeader}>about</Link>
+              <Link to='/#education' className={headerStyles.linkHeader}>education</Link>
+              <Link to='/#experience' className={headerStyles.linkHeader}>experience</Link>
+            </StyledNav>
+          </Fade>
+        </CSSTransition>
       </StyledHeader>
     </div>
   );

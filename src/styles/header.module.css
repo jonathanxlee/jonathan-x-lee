@@ -15,7 +15,7 @@
 .logo {
     grid-area: logo;
     height: 70px;
-  }
+}
   
 .navBasic{
     grid-area: nav;
