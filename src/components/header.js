@@ -8,9 +8,15 @@ import Fade from "react-reveal/Fade";
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
+  position: fixed;
+  z-index: 900;
+  top: 0px;
   display: grid;
   grid-template-areas: "logo nav";
+  padding: 3rem;
+  width: 100%;
   max-width: 100%;
+  background-color: var(--theme-light);
   text-align: left;
   
   @media(max-width:900px){
@@ -64,7 +70,6 @@ const Header = ({ siteTitle }) => {
   };
   
   return(
-    <div>
       <StyledHeader>
         <div className={headerStyles.hamburgerStyle}>
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
@@ -83,14 +88,13 @@ const Header = ({ siteTitle }) => {
             <StyledLogo></StyledLogo>
             <StyledNav>
               {/* change this into props.children to make reusable */}
-              <Link to='/#about' className={headerStyles.linkHeader}>about</Link>
-              <Link to='/#education' className={headerStyles.linkHeader}>education</Link>
-              <Link to='/#experience' className={headerStyles.linkHeader}>experience</Link>
+              <Link to='/#about' className={headerStyles.linkHeader}><h4>about</h4></Link>
+              <Link to='/#education' className={headerStyles.linkHeader}><h4>education</h4></Link>
+              <Link to='/#experience' className={headerStyles.linkHeader}><h4>experience</h4></Link>
             </StyledNav>
           </Fade>
         </CSSTransition>
       </StyledHeader>
-    </div>
   );
 }
 
