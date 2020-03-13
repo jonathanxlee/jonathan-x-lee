@@ -11,26 +11,38 @@ import styled from 'styled-components';
 
 const workData = require("../content/work.json");
 
+const FullScreenSection = styled.section`
+  display: flex;
+  height: calc(100vh + 53px);
+  padding: 5vh 5vw 5vh 5vw;
+  align-items: center;
+`
+
+const StyledSection = styled.section`
+  padding: 5vh 5vw 5vh 5vw;
+`
+
 const CenteredSection = styled.section` 
   align-content: center; 
+  padding: 5vh 5vw 5vh 5vw;
 `
+
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <section id='about'>
-      <About data={aboutData} />
-    </section>
-    <section id='education'>
-      <Education />
-    </section>
-    <CenteredSection id='experience'>
-      <Work data={workData}/>
-    </CenteredSection>
-    {/* <section id='skills'>
-      <Skills data={workData}/>
-    </section> */}
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  <div>
+    <SEO title='Home'></SEO>
+    <Layout>
+      <FullScreenSection id='about'>
+        <About data={aboutData} />
+      </FullScreenSection>
+      <StyledSection id='education'>
+        <Education />
+      </StyledSection>
+      <CenteredSection id='experience'>
+        <Work data={workData}/>
+      </CenteredSection>
+      <Link to="/">Go back to the homepage</Link>
+    </Layout>
+  </div>
   
 );
 
