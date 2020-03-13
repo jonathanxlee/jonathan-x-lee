@@ -9,14 +9,16 @@ const StyledDiv = styled.div`
   z-index: 100;
 `
 const StyledLargeHeader = styled.h2`
-  font-size: 8vw;
+  font-size: 7vw;
+  margin-bottom: 0.2rem;
   @media(max-width:900px){
     font-size: 15vw
   }
 `
 
 const StyledMediumHeader = styled.h3`
-  font-size: 5vw;
+  font-size: 4vw;
+  margin-bottom: 2rem;
   @media(max-width:900px){
     font-size: 6vw
   }

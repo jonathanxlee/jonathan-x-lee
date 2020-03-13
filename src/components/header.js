@@ -13,14 +13,14 @@ const StyledHeader = styled.header`
   top: 0px;
   display: grid;
   grid-template-areas: "logo nav";
-  padding: 3rem;
+  padding: 2rem 3rem 1rem 0;
   width: 100%;
   max-width: 100%;
   background-color: var(--theme-light);
   text-align: left;
   
   @media(max-width:900px){
-    grid-template-areas: 'logo hamburger' 'nav nav';
+    grid-template-areas: 'logo hamburger' 'nav nav2';
   }
 `
 
@@ -32,11 +32,12 @@ const StyledNav = styled.nav`
   grid-area: nav;
   display: grid;
   grid-template-columns: repeat(3, auto);
-  align-items: right;
+  justify-items: end;
   text-align: right;
 
   @media(max-width:900px){
-    grid-template-rows: repeat(4, auto);
+    grid-area: nav2;
+    grid-template-rows: repeat(3, auto);
     grid-template-columns: none;
     grid-row-gap: 2rem;
   }

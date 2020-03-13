@@ -136,12 +136,4 @@ const Work = ({data}) => {
     )
 }
 
-Work.propTypes = {
-    data: PropTypes.array.isRequired,
-};
-  
-Work.defaultProps = {
-    data: {},
-}
-
-export default Work
+export default Work;

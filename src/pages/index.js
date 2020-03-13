@@ -19,12 +19,13 @@ const FullScreenSection = styled.section`
 `
 
 const StyledSection = styled.section`
-  padding: 5vh 5vw 5vh 5vw;
+  padding: 5vh 5vw 25vh 5vw;
+  
 `
 
 const CenteredSection = styled.section` 
   align-content: center; 
-  padding: 5vh 5vw 5vh 5vw;
+  padding: 25vh 15vw 50vh 15vw;
 `
 
 const IndexPage = () => (
