@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import headerStyles from "../styles/header.module.css";
 import { CSSTransition } from 'react-transition-group';
 import { HamburgerSpin } from 'react-animated-burgers';
-import Fade from "react-reveal/Fade";
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
@@ -20,7 +19,7 @@ const StyledHeader = styled.header`
   text-align: left;
   
   @media(max-width:900px){
-    grid-template-areas: 'logo hamburger' 'nav nav2';
+    grid-template-areas: 'logo hamburger' '. nav';
   }
 `
 
@@ -36,12 +35,11 @@ const StyledNav = styled.nav`
   text-align: right;
 
   @media(max-width:900px){
-    grid-area: nav2;
+    grid-area: nav;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: none;
-    grid-row-gap: 2rem;
+    grid-row-gap: 0.5rem;
   }
-
 `
 
 const Header = ({ siteTitle }) => {
@@ -75,6 +73,7 @@ const Header = ({ siteTitle }) => {
         <div className={headerStyles.hamburgerStyle}>
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
         </div>
+        <StyledLogo></StyledLogo>
         <CSSTransition
           in={!isSmallScreen || isActive}
           timeout={350}
@@ -85,15 +84,12 @@ const Header = ({ siteTitle }) => {
             exitActive: `${headerStyles.navAnimationExitActive}`
           }}
           unmountOnExit>
-          <Fade top big>
-            <StyledLogo></StyledLogo>
-            <StyledNav>
-              {/* change this into props.children to make reusable */}
-              <Link to='/#about' className={headerStyles.linkHeader}><h4>about</h4></Link>
-              <Link to='/#education' className={headerStyles.linkHeader}><h4>education</h4></Link>
-              <Link to='/#experience' className={headerStyles.linkHeader}><h4>experience</h4></Link>
-            </StyledNav>
-          </Fade>
+          <StyledNav>
+            {/* change this into props.children to make reusable */}
+            <Link to='/#about' className={headerStyles.linkHeader}><h4>about</h4></Link>
+            <Link to='/#education' className={headerStyles.linkHeader}><h4>education</h4></Link>
+            <Link to='/#experience' className={headerStyles.linkHeader}><h4>experience</h4></Link>
+          </StyledNav>
         </CSSTransition>
       </StyledHeader>
   );
