@@ -6,9 +6,9 @@
         "start_date": "oct 2019",
         "end_date": "present",
         "bullets": [
-            "Designed and implemented ETL processes",
-            "Architechted API monitoring systems",
-            "Collaborated cross-functionally to design KPI vizualizations"
+            "Designed and implemented ETL processes with python to integrate various business applications and datasources with company dashboards",
+            "Developed database schemas for reporting using SQL",
+            "Collaborated cross-functionally to design BI dashboards and implemented these custom dashboards in Sisense"
         ] 
     },
     {   
@@ -18,9 +18,9 @@
         "start_date": "feb 2019",
         "end_date": "jan 2020",
         "bullets": [
-            "Designed and owned the development of a software component from prototype to launch",
-            "Managed a team of developers working on feature development",
-            "Coordinated with key stakeholders to "
+            "Designed and owned the development of a product used for undergraduate Admissions from prototype to launch",
+            "Managed a team of five developers to work on bringing our product to production",
+            "Coordinated with key stakeholders, including college VP's, to increase efficiency with our prduct and reduce the number of clicks required to process an application by 60%"
         ] 
     },
     {   

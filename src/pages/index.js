@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import About from "../components/about";
 import Education from "../components/education";
 import Work from "../components/work";
+import Skills from "../components/skills";
 import aboutData from "../content/about/about";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -23,8 +24,15 @@ const StyledSection = styled.section`
 `
 
 const CenteredSection = styled.section` 
-  align-content: center; 
-  padding: 25vh 15vw 50vh 15vw;
+  display: flex;
+  justify-content: center; 
+  padding: 25vh 10vw 25vh 10vw;
+  min-height: 100vh;
+
+  &.inverse{
+    background-color: black;
+    color: white;
+  }
 `
 
 const IndexPage = () => (
@@ -34,11 +42,11 @@ const IndexPage = () => (
       <FullScreenSection id='about'>
         <About data={aboutData} />
       </FullScreenSection>
-      <StyledSection id='education'>
-        <Education />
-      </StyledSection>
-      <CenteredSection id='experience'>
+      <CenteredSection className='inverse' id='experience'>
         <Work data={workData}/>
+      </CenteredSection>
+      <CenteredSection id='experience'>
+        <Skills data={workData}/>
       </CenteredSection>
       <Link to="/">Go back to the homepage</Link>
     </Layout>

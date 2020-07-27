@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   top: 0px;
   display: grid;
   grid-template-areas: "logo nav";
-  padding: 2rem 3rem 1rem 0;
+  padding: 2rem 3rem 1rem 3rem;
   width: 100%;
   max-width: 100%;
   background-color: var(--theme-light);
@@ -23,20 +23,20 @@ const StyledHeader = styled.header`
   }
 `
 
-const StyledLogo = styled.img`
+const StyledLogo = styled.div`
   grid-area: logo;
 `
 
 const StyledNav = styled.nav`
   grid-area: nav;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(4, auto);
   justify-items: end;
   text-align: right;
 
   @media(max-width:900px){
     grid-area: nav;
-    grid-template-rows: repeat(3, auto);
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: none;
     grid-row-gap: 0.5rem;
   }
@@ -73,7 +73,9 @@ const Header = ({ siteTitle }) => {
         <div className={headerStyles.hamburgerStyle}>
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
         </div>
-        <StyledLogo></StyledLogo>
+        <StyledLogo>
+          <h2>jonathan lee</h2>
+        </StyledLogo>
         <CSSTransition
           in={!isSmallScreen || isActive}
           timeout={350}
@@ -89,6 +91,7 @@ const Header = ({ siteTitle }) => {
             <Link to='/#about' className={headerStyles.linkHeader}><h4>about</h4></Link>
             <Link to='/#education' className={headerStyles.linkHeader}><h4>education</h4></Link>
             <Link to='/#experience' className={headerStyles.linkHeader}><h4>experience</h4></Link>
+            <Link to='/#skills' className={headerStyles.linkHeader}><h4>skills</h4></Link>
           </StyledNav>
         </CSSTransition>
       </StyledHeader>

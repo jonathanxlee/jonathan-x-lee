@@ -1,16 +1,29 @@
 import React from "react"
 import styled from 'styled-components';
 import { useMediaQuery } from "react-responsive";
+import SectionHeader from "../components/sectionHeader";
 
-const tabWidthRegular = 250;
+const tabWidthRegular = 200;
 const tabWidthPhablet = 150;
 
 const Card = styled.div`
+    align-self: center; 
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-content: center; 
-    width: 100%
+    width: 65vw;
+    align-items: left;
+    text-align: left;
+    color: white;
+`
+
+const FullCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-content: center; 
+    width: 100%;
     align-items: left;
     text-align: left;
 `
@@ -24,7 +37,6 @@ const MenuContainer = styled.div`
     white-space: nowrap;
 
 `
-
 const MenuBar = styled.div`
     display: flex;
     justify-content: flex-start;
@@ -45,7 +57,7 @@ const MenuButton = styled.button`
     outline: none;
     background: none;
     padding: 0;
-    easing: ;
+    color: white;
     transition: all 0.25s ease-in-out 0.1s;
 
     &.active{
@@ -86,9 +98,25 @@ const DetailList = styled.ul`
     list-style-type: none;
 `
 
-const DetailListItme = styled.li`
+const DetailListItem = styled.li`
     font-size: 5vh;
     margin: 1rem;
+    color: white; 
+`
+
+const DetailListText = styled.p`
+    color: white; 
+    font-size: 2.4rem;
+`
+const SectionTitleDiv = styled.div`
+    display: flex;
+    margin-bottom: 25px;
+`
+
+const SectionTitle = styled.h2`
+    font-size: 7rem;
+    justify-self: flex-start;
+    color: white; 
 `
 
 const StyledCard = styled.div``
@@ -106,6 +134,8 @@ const Work = ({data}) => {
     }
     
     return(
+    <FullCard>
+        <SectionHeader>my experiences.</SectionHeader>
         <Card>
             <MenuContainer>
                 <MenuBar data={data}>
@@ -115,7 +145,7 @@ const Work = ({data}) => {
 
                         return(
                             <MenuButton id={i} className={className} onClick={event => handleClick(event)}>
-                                <h3 id={i}>{headerText}</h3>
+                                <h4 id={i}>{headerText}</h4>
                             </MenuButton>
                         );
                     })}
@@ -123,15 +153,18 @@ const Work = ({data}) => {
                 <MenuHighlight active={active}></MenuHighlight>
             </MenuContainer>
             <StyledCard>
-                <h3>{job.title} @{job.company}</h3>
-                <h4>{job.start_date} - {job.end_date}</h4>
+                <h4>{job.title} @{job.company}</h4>
+                <h5>{job.start_date} - {job.end_date}</h5>
                 <DetailList>
                     {job.bullets.map((item,i) => (
-                        <DetailListItme id={i}><p>{item}</p></DetailListItme>
-                        ))}
+                        <DetailListItem id={i}>
+                            <DetailListText>{item}</DetailListText>
+                        </DetailListItem>
+                    ))}
                 </DetailList>
             </StyledCard>
         </Card>
+        </FullCard>
     )
 }
 
