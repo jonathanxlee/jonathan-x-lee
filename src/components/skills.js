@@ -2,6 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
 import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 import SkillGraphic from "../components/skillgraphic";
 import SectionHeader from "../components/sectionHeader";
 import TrackVisibility from 'react-on-screen';
@@ -17,17 +18,36 @@ const skillData = [
       { Name: 'sql' }
     ]
 
+const FullCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-content: center; 
+    width: 100%;
+    align-items: left;
+    text-align: left;
+`
+
+const CenteredCard = styled.div`
+    align-self: center;
+`
+
 const Skills = ({data}) => {
 
+    const isPhablet = useMediaQuery({ query: '(max-width: 768px)' });
+    const size = isPhablet? 400: 600;
+
     return(
-        <div>
+        <FullCard>
             <SectionHeader>my skills.</SectionHeader>
-            <Fade bottom>
-                <TrackVisibility>
-                    <SkillGraphic data={skillData} width={600} height={600}></SkillGraphic>
-                </TrackVisibility>
-            </Fade>
-        </div>
+            <CenteredCard>
+                <Fade bottom>
+                    <TrackVisibility>
+                        <SkillGraphic data={skillData} width={size} height={size}></SkillGraphic>
+                    </TrackVisibility>
+                </Fade>
+            </CenteredCard>
+        </FullCard>
     )
 };
 

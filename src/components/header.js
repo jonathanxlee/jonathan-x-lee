@@ -74,7 +74,7 @@ const Header = ({ siteTitle }) => {
           <HamburgerSpin className={headerStyles.hamburgerStyle} isActive={isActive} toggleButton={toggleVisible}  />
         </div>
         <StyledLogo>
-          <h2>jonathan lee</h2>
+          <h2>{isSmallScreen ? 'jxl':'jonathan lee'}</h2>
         </StyledLogo>
         <CSSTransition
           in={!isSmallScreen || isActive}

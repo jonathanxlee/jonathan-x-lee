@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import SectionHeader from "../components/sectionHeader";
 
 const tabWidthRegular = 200;
-const tabWidthPhablet = 150;
+const tabWidthPhablet = 100;
 
 const Card = styled.div`
     align-self: center; 
@@ -16,6 +16,10 @@ const Card = styled.div`
     align-items: left;
     text-align: left;
     color: white;
+
+    @media (max-width: 768px){
+        width: 80vw;
+    }
 `
 
 const FullCard = styled.div`
@@ -108,16 +112,6 @@ const DetailListText = styled.p`
     color: white; 
     font-size: 2.4rem;
 `
-const SectionTitleDiv = styled.div`
-    display: flex;
-    margin-bottom: 25px;
-`
-
-const SectionTitle = styled.h2`
-    font-size: 7rem;
-    justify-self: flex-start;
-    color: white; 
-`
 
 const StyledCard = styled.div``
 
@@ -154,7 +148,7 @@ const Work = ({data}) => {
             </MenuContainer>
             <StyledCard>
                 <h4>{job.title} @{job.company}</h4>
-                <h5>{job.start_date} - {job.end_date}</h5>
+                <h4>{job.start_date} - {job.end_date}</h4>
                 <DetailList>
                     {job.bullets.map((item,i) => (
                         <DetailListItem id={i}>

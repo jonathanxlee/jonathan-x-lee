@@ -9,7 +9,6 @@ const SectionTitleDiv = styled.div`
 `
 
 const SectionTitle = styled.h2`
-    font-size: 7rem;
     justify-self: flex-start;; 
 `
 

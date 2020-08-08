@@ -18,7 +18,7 @@ export default class SkillGraphic extends Component {
     renderBubbles(){
         const data = this.props.data;
 
-        var diameter = 100;
+        var diameter = this.props.width/6;
         var radius = diameter/2;
         var centerX = this.props.width/2;
         var centerY = this.props.height/2;
