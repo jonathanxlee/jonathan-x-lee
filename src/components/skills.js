@@ -35,7 +35,7 @@ const CenteredCard = styled.div`
 const Skills = ({data}) => {
 
     const isPhablet = useMediaQuery({ query: '(max-width: 768px)' });
-    const size = isPhablet? 400: 600;
+    const size = isPhablet ? 300: 600;
 
     return(
         <FullCard>
@@ -43,7 +43,7 @@ const Skills = ({data}) => {
             <CenteredCard>
                 <Fade bottom>
                     <TrackVisibility>
-                        <SkillGraphic data={skillData} width={size} height={size}></SkillGraphic>
+                        <SkillGraphic data={skillData} width={size} height={size} isPhablet={isPhablet}></SkillGraphic>
                     </TrackVisibility>
                 </Fade>
             </CenteredCard>

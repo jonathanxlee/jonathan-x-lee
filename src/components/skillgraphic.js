@@ -23,6 +23,8 @@ export default class SkillGraphic extends Component {
         var centerX = this.props.width/2;
         var centerY = this.props.height/2;
 
+        var circleCircleRadius = this.props.width/3;
+
         d3Select(this.bubblesElement)
             .attr("width", this.props.width)
             .attr("height", this.props.height)
@@ -70,14 +72,14 @@ export default class SkillGraphic extends Component {
             function calculateX(d, i, totalPoints) {
                 var theta = (Math.PI*2)/totalPoints;
                 const angle = theta * i;
-                return centerX + (200 * Math.cos(angle));
+                return centerX + (circleCircleRadius * Math.cos(angle));
             }
 
             // Calculate the Y Position of the bubble along the edge a circle where the center point is the center of the SVG. 
             function calculateY(d, i, totalPoints) {
                 var theta = (Math.PI*2)/totalPoints;
                 const angle = theta * i;
-                return centerY + (200 * Math.sin(angle));
+                return centerY + (circleCircleRadius * Math.sin(angle));
             }
 
             function translate(d,i) {
